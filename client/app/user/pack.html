@@ -1,0 +1,40 @@
+<div class="container">
+
+  <div class="pack-info-form">
+    <form>
+      <input type="text" placeholder="Name your pack">
+      <input type="text" placeholder="Season">
+      <input type="text" placeholder="Trip duration">
+      <button type="submit">Create Pack</button>
+    </form>
+  </div>
+
+  <div class="pack-info">
+    <!-- add angular stuff to update pack info -->
+    <div> pack name </div>
+    <div> season </div>
+    <div> duration </div>
+  </div>
+
+  </div>
+    <div>{{weight}}</div>
+    <div>Base Weight</div>
+  <div>
+
+  <div>
+    <h2>Gear Closet</h2>
+    <div class="item" ng-repeat="item in gear">
+  <!-- item info here -->
+      <div>{{ item }}</div>
+    </div>
+  </div>
+
+  <div>
+    <h2>Packed</h2>
+    <div class="item" ng-repeat="item in PACK?">
+  <!-- item info here -->
+      <div>{{ item }}</div>
+    </div>
+  </div>
+
+</div>
