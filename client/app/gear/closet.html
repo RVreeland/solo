@@ -1,16 +1,16 @@
 <div class="container">
 
-  <div class="add-item">
+  <div class="add-item" ng-controller="AddController">
     <form class="add-item-form">
-      <input type="text" ng-model="" placeholder="item">
-      <input type="text" ng-model="" placeholder="type">
-      <input type="text" ng-model="" placeholder="weight">
-      <input type="text" ng-model="" placeholder="category">
+      <input type="text" ng-model="item.name" placeholder="item name">
+      <input type="text" ng-model="item.type" placeholder="type">
+      <input type="text" ng-model="item.weight" placeholder="weight">
+      <input type="text" ng-model="item.category" placeholder="category">
       <button type="submit">Store It</button>
     </form>
   </div>
 
-  <div class="item-list">
+  <div class="item-list" ng-controller="ClosetController">
     <h2>My Gear</h2>
     <table>
       <tr>
@@ -19,11 +19,11 @@
         <th>Weight</th>
         <th>Category</th>
       </tr>
-      <tr>
-        <td>item</td>
-        <td>type</td>
-        <td>weight</td>
-        <td>category</td>
+      <tr ng-repeat= "item in gear.items">
+        <td>{{item.name}}</td>
+        <td>{{item.type}}</td>
+        <td>{{item.weight}}</td>
+        <td>{{item.category}}</td>
       </tr>
     </table>
   </div>

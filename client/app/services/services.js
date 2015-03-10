@@ -1,17 +1,12 @@
 angular.module('packrat.services', ["firebase"])
 
-.factory('Items', ["firebaseObject",
-  function($firebaseObject) {
-    return function(item) {
-      //assign item properties
+.factory("Items", ["$firebaseArray", function($firebaseArray) {
       var ref = new Firebase("https://burning-torch-608.firebaseio.com/");
       var itemRef = ref.child(item);
-
-      //returns synchronized object
-      return $firebaseObject(itemRef);
-    }
-  }
-]);
+      var items = $firebaseArray(itemRef)
+      return items;
+  ];
+});
 
 
   // function ($http) {
