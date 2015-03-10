@@ -55,11 +55,11 @@
           <th>Weight</th>
           <th>Category</th>
         </tr>
-        <tr ng-repeat= "item in pack.items">
-          <td>{{pack.item.name}}</td>
-          <td>{{pack.item.type}}</td>
-          <td>{{pack.item.weight}}</td>
-          <td>{{pack.item.category}}</td>
+        <tr ng-repeat= "item in packItems">
+          <td>{{item.name}}</td>
+          <td>{{item.type}}</td>
+          <td>{{item.weight}}</td>
+          <td>{{item.category}}</td>
         </tr>
       </table>
     </div>

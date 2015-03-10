@@ -29,6 +29,7 @@ angular.module('packrat.gear', [])
   $scope.pack = {};
   $scope.currentPack = {};
   $scope.packId;
+  $scope.packItems;
   $scope.packNotEntered = true;
     // $scope.currentPack = {
     //   name: "Yosemite",
@@ -60,12 +61,11 @@ angular.module('packrat.gear', [])
 console.log($scope.packItems);
 
   $scope.addToPack = function() {
-    var packItems = Packs.getPackItems($scope.user, $scope.packId);
-
+    $scope.packItems = Packs.getPackItems($scope.user, $scope.packId);
     console.log(this.item);
     var item = this.item;
     // Items.addToPack($scope.user, $scope.currentPack.id, item);
-    packItems.$add({
+    $scope.packItems.$add({
       name: item.name,
       type: item.type,
       weight: item.weight,
@@ -73,6 +73,7 @@ console.log($scope.packItems);
     }).then(function(ref) {
       var id = ref.key();
       console.log("added record with id " + id);
+      console.log($scope.packItems);
     });
   }
   
