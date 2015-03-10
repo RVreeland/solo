@@ -1,12 +1,16 @@
 angular.module('packrat.services', ["firebase"])
 
 .factory("Items", ["$firebaseArray", function($firebaseArray) {
-      var ref = new Firebase("https://burning-torch-608.firebaseio.com/");
-      var itemRef = ref.child(item);
-      var items = $firebaseArray(itemRef)
+  var listItems = function(user) {
+      var ref = new Firebase("https://burning-torch-608.firebaseio.com/users/" + user + "/closet");
+      var items = $firebaseArray(ref);
       return items;
-  ];
-});
+  };
+
+  return {
+    listItems: listItems
+  }
+  }]);
 
 
   // function ($http) {
