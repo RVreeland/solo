@@ -23,7 +23,7 @@ angular.module('packrat', [
     })
     .when('/pack', {
       templateUrl: 'app/gear/pack.html',
-      controller: 'PackController',
+      controller: 'ClosetController',
       authenticate: false,
     })
     .otherwise({

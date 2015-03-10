@@ -56,6 +56,32 @@ h1 {
   /*padding-top: 70px;*/
 }
 
+.current-pack {
+  color: #ABABAB;
+}
+.current-pack div {
+  display: inline-block;
+  font-size: 1.25em;
+  margin-right:5px;
+  margin-bottom: 5px; 
+}
+
+.pack-name {
+  font-weight: bold;
+  color: black;
+}
+
+.currently-packing {
+  color: black;
+}
+
+.pack-main {
+  display: flex;
+}
+
+.closet {
+  margin-right: 10%;
+}
 /******************
 NAVIGATION
 ******************/
@@ -140,6 +166,7 @@ td {
   color:#666;}
 
 th {
+  width: 100px;
   text-align: left;
   font-size:1.2em; 
   font-style: bold; 

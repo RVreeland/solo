@@ -1,20 +1,17 @@
 angular.module('packrat.gear', [])
 
-.controller('ClosetController', function($scope, Items) {
+.controller('ClosetController', function($scope, Items, Packs) {
 
   $scope.user = "Joaquin";
 
   $scope.gearList = Items.listItems($scope.user);
 
-})
-
-//will using a synchronous object work for many items??
-.controller('AddController', function($scope, Items) {
   //item entered in form
   $scope.user = "Joaquin";
   $scope.item = {};
   //firebase array
   $scope.items = Items.listItems($scope.user);
+
   $scope.addItem = function() {
     $scope.items.$add({
       name: $scope.item.name,
@@ -30,14 +27,15 @@ angular.module('packrat.gear', [])
     $scope.item = {};
   };
 
-})
-
-.controller('PackController', function($scope, Packs) {
-  
-  $scope.user = "Joaquin";
   $scope.pack = {};
-  $scope.currentPack = {};
-  $scope.packNotEntered = true;
+  // $scope.currentPack = {};
+  // $scope.packNotEntered = true;
+    $scope.currentPack = {
+      name: "Yosemite",
+      duration: "3 days",
+      season: "summer"
+    };
+  $scope.packNotEntered = false;
 
   $scope.packs = Packs.getPacks($scope.user);
 
@@ -56,6 +54,10 @@ angular.module('packrat.gear', [])
       $scope.packNotEntered = false;
     });
   };
+
+  $scope.addToPack = function() {
+    console.log(this.item);
+  }
   
 
 });

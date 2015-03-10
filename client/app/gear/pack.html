@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container" ng-controller="ClosetController">
 
-  <div ng-controller="PackController">
+  <div >
     <div class="pack-info-form">
       <form ng-show="packNotEntered">
         <input ng-model="pack.name" type="text" placeholder="Name your pack">
@@ -12,9 +12,12 @@
 
     <div class="pack-info">
       <!-- add angular stuff to update pack info -->
-      <div>{{currentPack.name}}</div>
-      <div>{{currentPack.season}}</div>
-      <div> {{currentPack.duration}}</div>
+      <div class="current-pack">
+        <div class="currently-packing">Currently Packing:</div>
+        <div class="pack-name">{{currentPack.name}}</div>
+        <div>{{currentPack.season}}</div>
+        <div> {{currentPack.duration}}</div>
+      </div>
     </div>
 
     </div>
@@ -23,30 +26,46 @@
     <div>
   </div>
 
-  <div class="item-list" ng-controller="ClosetController">
-    <h2>My Gear Closet</h2>
-    <table>
-      <tr>
-        <th>Item</th>
-        <th>Type</th>
-        <th>Weight</th>
-        <th>Category</th>
-      </tr>
-      <tr ng-repeat= "item in gearList">
-        <td>{{item.name}}</td>
-        <td>{{item.type}}</td>
-        <td>{{item.weight}}</td>
-        <td>{{item.category}}</td>
-      </tr>
-    </table>
+  <div class="pack-main" >
+
+    <div class="item-list closet">
+      <h2>My Gear Closet</h2>
+      <table>
+        <tr>
+          <th>Item</th>
+          <th>Type</th>
+          <th>Weight</th>
+          <th>Category</th>
+        </tr>
+        <tr ng-repeat= "item in gearList" ng-click="addToPack()">
+          <td>{{item.name}}</td>
+          <td>{{item.type}}</td>
+          <td>{{item.weight}}</td>
+          <td>{{item.category}}</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="pack-list pack">
+      <h2>My Pack</h2>
+      <table>
+        <tr>
+          <th>Item</th>
+          <th>Type</th>
+          <th>Weight</th>
+          <th>Category</th>
+        </tr>
+        <tr ng-repeat= "item in pack.items">
+          <td>{{pack.item.name}}</td>
+          <td>{{pack.item.type}}</td>
+          <td>{{pack.item.weight}}</td>
+          <td>{{pack.item.category}}</td>
+        </tr>
+      </table>
+    </div>
   </div>
 
-<!--   <div>
-    <h2>Packed</h2>
-    <div class="item" ng-repeat="item in PACK?">
-  <!-- item info here -->
-      <div>{{ item }}</div>
     </div>
-  </div> -->
+  </div>
 
 </div>
