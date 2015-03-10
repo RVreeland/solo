@@ -7,9 +7,10 @@ angular.module('packrat.services', ["firebase"])
       return items;
   };
 
-  var addToPack = function(user, pack) {
+  var addToPack = function(user, packid, item) {
     var ref = new Firebase("https://burning-torch-608.firebaseio.com/users/" + user + "/packs");
-    var items = $firebaseArray(ref);
+    var packs = $firebaseArray(ref);
+    var pack = packs.$getRecord(id)
 
   }
 
@@ -25,8 +26,15 @@ angular.module('packrat.services', ["firebase"])
       return packs;
   };
 
+  var getPackItems = function(user, packid) {
+      var ref = new Firebase("https://burning-torch-608.firebaseio.com/users/" + user + "/packs/" + packid + "/items");
+      var packItems = $firebaseArray(ref);
+      return packItems;
+  }
+
   return {
     getPacks: getPacks,
+    getPackItems: getPackItems
     // getOnePack: getOnePack
   }
   }]);
