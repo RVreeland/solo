@@ -1,32 +1,10 @@
 angular.module('packrat.gear', [])
 
 .controller('ClosetController', function($scope, Items) {
-  /* 
-  scope.gear = {
-    items: {
-      name: Tarptent Stratospire2,
-      type: tent,
-      weight: 3 lbs,
-      category: shelter
-    }
-  }
-  */
+
   $scope.user = "Joaquin";
 
   $scope.gearList = Items.listItems($scope.user);
-  console.log($scope.gearList);
-  
-
-  // $scope.getGear = function() {
-  //   Items.getAll()
-  //     .then(function(items)) {
-  //       $scope.gear.items = items;
-  //     })
-  //     .catch(function (error) {
-  //       console.error(error);
-  //     });
-  // };
-
 
 })
 
@@ -52,35 +30,34 @@ angular.module('packrat.gear', [])
     $scope.item = {};
   };
 
+})
+
+.controller('PackController', function($scope, Packs) {
+  
+  $scope.user = "Joaquin";
+  $scope.pack = {};
+  $scope.currentPack = {};
+  // $scope.packNotEntered = true;
+
+  $scope.packs = Packs.getPacks($scope.user);
+
+  $scope.addPack = function() {
+    $scope.packs.$add({
+      name: $scope.pack.name,
+      season: $scope.pack.season,
+      duration: $scope.pack.duration,
+    }).then(function(ref) {
+      var id = ref.key();
+      // $scope.packNotEntered = false;
+      // console.log($scope.packNotEntered);
+      console.log("added record with id " + id);
+      // $scope.items.$indexFor(id); 
+      console.log($scope.user, id);
+      $scope.pack = {};
+      $scope.currentPack = $scope.packs.$getRecord(id);
+    });
+  };
+  
+
 });
 
-
-// function($scope) {
-  
-  /* 
-  scope.item = {
-    name: Tarptent Stratospire2,
-    type: tent,
-    weight: 3 lbs,
-    category: shelter
-  }
-  */
-  
-  //item info comes from user input in closet.html
-  // $scope.item = {};
-
-  // $scope.addItem = function () {
-  //   Items.addItem = function($scope.item)
-  //     .then(function() {
-  //       //what to do after adding item to database
-  //     })
-  //     .catch(function(error) {
-  //       console.error(error);
-  //     });
-  // };
-
-  //firebase
-
-  
-  
-// };

@@ -21,7 +21,7 @@ angular.module('packrat', [
       controller: 'ClosetController',
       authenticate: false,
     })
-    .when('/newpack', {
+    .when('/pack', {
       templateUrl: 'app/gear/pack.html',
       controller: 'PackController',
       authenticate: false,

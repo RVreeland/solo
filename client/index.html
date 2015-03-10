@@ -14,18 +14,37 @@
     <script src="https://cdn.firebase.com/libs/angularfire/1.0.0/angularfire.min.js"></script>
   </head>
   <body>
-    <header class="header">
-      <button type="submit">Log In</button>
-      <button type="submit">Sign Up</button>
-      <img float="left" height="100px" width="auto" src="assets/packrat.png">
-      <h1>PAK RAT</h1>
-    </header>
-    <!-- the ng-view directive is where our templates will be loaded into when naviagted to -->
-    <div ng-view></div>
+    <div class="wrapper">
 
-    <footer>
-      <img class="icon" width="200px" height="auto" align="center" src="assets/mountain.png">
-    </footer>
+      <header class="header">
+        <div class="header-content">
+          <button type="submit" class="login">Log In</button>
+          <button type="submit" class="signup">Sign Up</button>
+          <div class="logo">
+            <img float="left" height="100px" width="auto" src="assets/packrat.png">
+            <h1>PAK RAT</h1>
+          </div>
+        </div>
+
+        <nav>
+          <ul>
+            <li><a href="#/closet">ADD NEW GEAR</a></li>
+            <li><a href="#/pack">PACK A NEW PACK</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <div class="main">
+        <!-- the ng-view directive is where our templates will be loaded into when naviagted to -->
+        <div ng-view></div>
+      </div>
+
+      <footer>
+        <img class="icon" width="200px" height="auto" align="center" src="assets/mountain.png">
+      </footer>
+      
+
+    </div>
 
     <script src="lib/angular-route/angular-route.js"></script>
 

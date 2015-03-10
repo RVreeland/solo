@@ -1,40 +1,52 @@
 <div class="container">
 
-  <div class="pack-info-form">
-    <form>
-      <input type="text" placeholder="Name your pack">
-      <input type="text" placeholder="Season">
-      <input type="text" placeholder="Trip duration">
-      <button type="submit">Create Pack</button>
-    </form>
-  </div>
-
-  <div class="pack-info">
-    <!-- add angular stuff to update pack info -->
-    <div> pack name </div>
-    <div> season </div>
-    <div> duration </div>
-  </div>
-
-  </div>
-    <div>{{weight}}</div>
-    <div>Base Weight</div>
-  <div>
-
-  <div>
-    <h2>Gear Closet</h2>
-    <div class="item" ng-repeat="item in gear">
-  <!-- item info here -->
-      <div>{{ item }}</div>
+  <div ng-controller="PackController">
+    <div class="pack-info-form">
+      <form >
+        <input ng-model="pack.name" type="text" placeholder="Name your pack">
+        <input ng-model="pack.season" type="text" placeholder="Season">
+        <input ng-model="pack.duration" type="text" placeholder="Trip duration">
+        <button type="submit" ng-click="addPack()">Create Pack</button>
+      </form>
     </div>
+
+    <div class="pack-info">
+      <!-- add angular stuff to update pack info -->
+      <div>{{currentPack.name}}</div>
+      <div>{{currentPack.season}}</div>
+      <div> {{currentPack.duration}}</div>
+    </div>
+
+    </div>
+      <div>{{currentPack.weight}}</div>
+      <div>Base Weight</div>
+    <div>
   </div>
 
-  <div>
+  <div class="item-list" ng-controller="ClosetController">
+    <h2>My Gear Closet</h2>
+    <table>
+      <tr>
+        <th>Item</th>
+        <th>Type</th>
+        <th>Weight</th>
+        <th>Category</th>
+      </tr>
+      <tr ng-repeat= "item in gearList">
+        <td>{{item.name}}</td>
+        <td>{{item.type}}</td>
+        <td>{{item.weight}}</td>
+        <td>{{item.category}}</td>
+      </tr>
+    </table>
+  </div>
+
+<!--   <div>
     <h2>Packed</h2>
     <div class="item" ng-repeat="item in PACK?">
   <!-- item info here -->
       <div>{{ item }}</div>
     </div>
-  </div>
+  </div> -->
 
 </div>
