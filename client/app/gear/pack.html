@@ -2,7 +2,7 @@
 
   <div ng-controller="PackController">
     <div class="pack-info-form">
-      <form >
+      <form ng-show="packNotEntered">
         <input ng-model="pack.name" type="text" placeholder="Name your pack">
         <input ng-model="pack.season" type="text" placeholder="Season">
         <input ng-model="pack.duration" type="text" placeholder="Trip duration">

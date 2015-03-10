@@ -37,7 +37,7 @@ angular.module('packrat.gear', [])
   $scope.user = "Joaquin";
   $scope.pack = {};
   $scope.currentPack = {};
-  // $scope.packNotEntered = true;
+  $scope.packNotEntered = true;
 
   $scope.packs = Packs.getPacks($scope.user);
 
@@ -51,10 +51,9 @@ angular.module('packrat.gear', [])
       // $scope.packNotEntered = false;
       // console.log($scope.packNotEntered);
       console.log("added record with id " + id);
-      // $scope.items.$indexFor(id); 
-      console.log($scope.user, id);
       $scope.pack = {};
       $scope.currentPack = $scope.packs.$getRecord(id);
+      $scope.packNotEntered = false;
     });
   };
   

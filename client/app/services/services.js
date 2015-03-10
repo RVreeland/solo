@@ -19,16 +19,16 @@ angular.module('packrat.services', ["firebase"])
       return packs;
   };
 
-  var getOnePack = function(user, packid) {
-      var ref = new Firebase("https://burning-torch-608.firebaseio.com/users/" + user + "/packs");
-      var packs = $firebaseArray(ref);
-      var pack = packs.$getRecord(packid);
-      return pack;
-  };
+  // var getOnePack = function(user, packid) {
+  //     var ref = new Firebase("https://burning-torch-608.firebaseio.com/users/" + user + "/packs");
+  //     var packs = $firebaseArray(ref);
+  //     var pack = packs.$getRecord(packid);
+  //     return pack;
+  // };
 
   return {
     getPacks: getPacks,
-    getOnePack: getOnePack
+    // getOnePack: getOnePack
   }
   }]);
 
